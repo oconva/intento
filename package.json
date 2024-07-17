@@ -1,0 +1,48 @@
+{
+  "name": "intento",
+  "version": "1.0.0",
+  "description": "Open source intent recognition framework",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "nodemon -x tsx lib/index.js",
+    "dev": "npm run build && npm run start",
+    "build": "swc --strip-leading-paths --delete-dir-on-start -d lib src",
+    "lint": "pnpm eslint .",
+    "format": "pnpm prettier . --write",
+    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --no-watchman",
+    "predeploy": "pnpm lint && pnpm format && pnpm build && pnpm test"
+  },
+  "keywords": [
+    "intento",
+    "intent recognition",
+    "qvikchat",
+    "conversational ai",
+    "chat",
+    "chatbot",
+    "chat agent",
+    "langchain",
+    "genkit"
+  ],
+  "author": "Oconva <oconva.org@gmail.com> (https://github.com/oconva)",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.6.0",
+    "@swc/cli": "^0.4.0",
+    "@types/cors": "^2.8.17",
+    "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^29.5.12",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.2",
+    "ts-jest": "^29.2.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.0"
+  },
+  "dependencies": {
+    "@oconva/qvikchat": "^1.0.9"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "minify": true,
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": false,
+      "dynamicImport": false
+    },
+    "target": "es2017",
+    "loose": false,
+    "transform": {
+      "legacyDecorator": false,
+      "decoratorVersion": "2022-03"
+    },
+    "keepClassNames": false,
+    "baseUrl": "./src",
+    "paths": {
+      "/*": ["./*"]
+    }
+  },
+  "sourceMaps": true,
+  "isModule": true,
+  "module": {
+    "type": "commonjs",
+    "strictMode": true,
+    "noInterop": true
+  }
+}

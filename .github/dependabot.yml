@@ -1,0 +1,60 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+# Documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "Dependency Updates"
+    groups:
+      # group dev dependencies together in a single pull request
+      dev-dependencies:
+        applies-to: version-updates
+        patterns:
+          - "@eslint*"
+          - "@swc*"
+          - "@types*"
+          - "eslint*"
+          - "jest"
+          - "nodemon"
+          - "prettier"
+          - "ts-*"
+          - "tsx"
+          - "typescript*"
+      dev-dependencies-security-updates:
+        applies-to: security-updates
+        patterns:
+          - "@eslint*"
+          - "@swc*"
+          - "@types*"
+          - "eslint*"
+          - "jest"
+          - "nodemon"
+          - "prettier"
+          - "ts-*"
+          - "tsx"
+          - "typescript*"
+      # group QvikChat related updates in a single pull request
+      qvikchat:
+        applies-to: version-updates
+        patterns:
+          - "@oconva/qvikchat"
+      qvikchat-security-updates:
+        applies-to: security-updates
+        patterns:
+          - "@oconva/qvikchat"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "GitHub Actions Updates"

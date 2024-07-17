@@ -1,0 +1,14 @@
+# Ignore all files in the "node_modules" directory
+node_modules
+
+# Ignore all files in the build directory
+dist
+
+# Ignore all files with a ".log" extension
+*.log
+
+# Ignore all files with a ".tmp" extension
+*.tmp
+
+# Ignore all files in the "coverage" directory
+coverage
