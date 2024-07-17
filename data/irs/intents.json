@@ -1,0 +1,93 @@
+[
+  {
+      "id": "JnRA9mjEC3mo0rHLacQg",
+      "intent_code": "add-item",
+      "name": "Add Item",
+      "description": "Add an item to the inventory",
+      "status": "active",
+      "last_update": "2024-07-01",
+      "irs_id": "jV0DFAmdTGVA8mtTUdlC",
+      "uid": "DI2UZuaTWjQPzVCRjzPW",
+      "identifiers": ["add", "item"],
+      "examples": ["Add 5 units of iPhone 15 to the inventory", "Add 10 boxes of pens to the inventory"],
+      "data_attributes": [
+        {
+          "id": "item_name",
+          "name": "item name",
+          "description": "The name of the item to be added",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "item_quantity",
+          "name": "item quantity",
+          "description": "The quantity of the item to be added",
+          "type": "integer, string",
+          "required": true
+        },
+        {
+          "id": "item_quantity_unit",
+          "name": "item quantity unit",
+          "description": "Measurement unit of the item quantity",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "N4uR0nOGMuDAu91u1TRS",
+      "intent_code": "remove-item",
+      "name": "Remove Item",
+      "description": "Remove an item from the inventory",
+      "status": "active",
+      "last_update": "2024-07-01",
+      "irs_id": "jV0DFAmdTGVA8mtTUdlC",
+      "uid": "DI2UZuaTWjQPzVCRjzPW",
+      "identifiers": ["remove", "delete", "reduce"],
+      "examples": ["Remove 2 units of iPhone 15 from the inventory", "Remove 5 boxes of pens from the inventory"],
+      "data_attributes": [
+        {
+          "id": "item_name",
+          "name": "item name",
+          "description": "The name of the item to be removed",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "item_quantity",
+          "name": "item quantity",
+          "description": "The quantity of the item to be removed",
+          "type": "integer, string",
+          "required": true
+        },
+        {
+          "id": "item_quantity_unit",
+          "name": "item quantity unit",
+          "description": "Measurement unit of the item quantity",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "NJinDakl1tTqnFjB5hrt",
+      "intent_code": "check-inventory",
+      "name": "Check Inventory",
+      "description": "Check the inventory for a specific item",
+      "status": "active",
+      "last_update": "2024-07-01",
+      "irs_id": "jV0DFAmdTGVA8mtTUdlC",
+      "uid": "DI2UZuaTWjQPzVCRjzPW",
+      "identifiers": ["check", "how many", "how much", "are there", "is there", "are in inventory", "is in inventory"],
+      "examples": ["Check the inventory for iPhone 15", "How many pens are in the inventory?"],
+      "data_attributes": [
+        {
+          "id": "item_name",
+          "name": "item name",
+          "description": "The name of the item to check in the inventory",
+          "type": "string",
+          "required": true
+        }
+      ]
+    }
+]

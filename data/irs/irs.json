@@ -1,0 +1,65 @@
+{
+  "id": "jV0DFAmdTGVA8mtTUdlC",
+  "name": "inventory-app-irs",
+  "description": "Inventory App intent recognition service",
+  "version": "1.0.0",
+  "last_update": "2024-07-01",
+  "url": "https://irs.intento.ca/api/a5zwhp0YlcRVkpnOXch",
+  "status": "active",
+  "usage_limit_tokens": null,
+  "api_keys": ["a5zwhp0YlcRVkpnOXchIkL1lrmf0MPg24POM0kO6HcM="],
+  "llm_settings": {
+    "primary": {
+      "model": "gemini-15-flash",
+      "temperature": 0.9
+    },
+    "query_guardrails": {
+      "model": "gemini-15-flash"
+    },
+    "response_guardrails": {
+      "model": "gemini-15-flash"
+    }
+  },
+  "features": {
+    "query_expansion": true,
+    "pii_leakage_detection": true,
+    "response_evaluation": true
+  },
+  "intents": [
+    "JnRA9mjEC3mo0rHLacQg",
+    "N4uR0nOGMuDAu91u1TRS",
+    "NJinDakl1tTqnFjB5hrt"
+  ],
+  "input_schema": {
+    "user_input": "user input to be analyzed for detection of intent"
+  },
+  "output_schema": {
+    "success": [
+      {
+        "code": "intent-recognized",
+        "output": {
+          "intent_code": "code of the recognized intent",
+          "data": "extracted data attributes for the recognized intent as key-value pairs (use attribute IDs as keys)"
+        }
+      }
+    ],
+    "error": [
+      {
+        "code": "need-more-info",
+        "output": {
+          "ir_id": "ID of the intent recognition request",
+          "irs_id": "ID of the intent recognition service",
+          "data": {
+            "missing_data": ["list of missing data attributes (attribute IDs)"]
+          }
+        }
+      },
+      {
+        "code": "intent-not-recognized",
+        "output": {
+          "message": "Unable to recognize intent from user input"
+        }
+      }
+    ]
+  }
+}

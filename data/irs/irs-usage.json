@@ -1,0 +1,44 @@
+{
+  "jV0DFAmdTGVA8mtTUdlC": {
+    "irs_id": "jV0DFAmdTGVA8mtTUdlC",
+    "uid": "DI2UZuaTWjQPzVCRjzPW",
+    "total_requests": 2,
+    "total_cost": 0.0189,
+    "total_tokens": 15400,
+    "current_period_start": "2024-07-01T00:00:00Z",
+    "current_period_end": "2024-08-01T00:00:00Z",
+    "current_period_total_requests": 1,
+    "current_period_total_cost": 0.0112,
+    "current_period_total_tokens": 8600,
+    "current_period_usage_log": [
+      {
+        "timestamp": "2024-07-01T00:00:00Z",
+        "key": "a5zwhp0YlcRVkpnOXchIkL1lrmf0MPg24POM0kO6HcM=",
+        "model": "gpt-4o",
+        "total_cost": 0.0112,
+        "total_tokens": 9200,
+        "input_price_per_thousand_tokens": 0.0005,
+        "output_price_per_thousand_tokens": 0.0015,
+        "input_tokens": 2600,
+        "output_tokens": 6600,
+        "input_cost": 0.0013,
+        "output_cost": 0.0099
+      }
+    ],
+    "previous_period_usage_log": [
+      {
+        "timestamp": "2024-06-01T00:00:00Z",
+        "key": "a5zwhp0YlcRVkpnOXchIkL1lrmf0MPg24POM0kO6HcM=",
+        "model": "gemini-15-flash",
+        "total_cost": 0.0077,
+        "total_tokens": 6200,
+        "input_price_per_thousand_tokens": 0.0005,
+        "output_price_per_thousand_tokens": 0.0015,
+        "input_tokens": 1600,
+        "output_tokens": 4600,
+        "input_cost": 0.0008,
+        "output_cost": 0.0069
+      }
+    ]
+  }
+}
