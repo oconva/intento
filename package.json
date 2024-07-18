@@ -43,6 +43,8 @@
     "typescript-eslint": "^7.16.0"
   },
   "dependencies": {
-    "@oconva/qvikchat": "^1.0.9"
+    "@genkit-ai/dotprompt": "^0.5.7",
+    "@oconva/qvikchat": "^1.0.9",
+    "zod": "^3.23.8"
   }
 }
