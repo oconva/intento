@@ -1,5 +1,5 @@
-import IRS from "../data/irs/irs.json";
-import INTENTS from "../data/irs/intents.json";
+import * as IRS from "../data/irs/irs.json";
+import * as INTENTS from "../data/irs/intents.json";
 
 export type IRSDataType = typeof IRS;
 

@@ -1,9 +1,9 @@
 import { defineDotprompt } from "@genkit-ai/dotprompt";
 import { z } from "zod";
-import { getIRSIntents, IRSDataType } from "./data";
+import { getIRSIntents, getIRSData } from "./data";
 
 // Output schema for IRS query
-const irsOutputSchema = z.union([
+export const irsOutputSchema = z.union([
   z.object({
     code: z.literal("intent-recognized"),
     output: z.object({
@@ -34,7 +34,9 @@ const irsOutputSchema = z.union([
  * @param IRSData IRS data - The data for the IRS
  * @returns Prompt - to be used in IRS endpoint
  */
-export const getIRSPrompt = (IRSData: IRSDataType) => {
+export const getIRSPrompt = () => {
+  // get IRS data
+  const IRSData = getIRSData();
   return _getIRSPrompt({
     details: IRSData.app_details,
     intents: getIRSIntents(IRSData.intents),

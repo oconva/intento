@@ -4,7 +4,6 @@ Open source intent recognition powered by Large Language Models(LLMs) and Retrie
 
 Built with the missin to make conversational AI more open and accessible to all. No need to spend thousands on empowering your apps with conversational AI and providing your users the ability to interact with your app using natural language. Using [QvikChat](https://github.com/oconva/qvikchat) and Intento you can build powerful, reliable and secure conversational AI services at almost no cost.
 
-
 ## QvikChat
 
 **QvikChat** is a [Firebase Genkit](https://github.com/firebase/genkit) and [LangChain](https://js.langchain.com/v0.2/docs/introduction/) based framework that provides you with a solid foundation to build powerful AI-powered chat service endpoints quickly and efficiently. It includes support for **multiple types of conversations (open-ended, close-ended)**, **chat history**, **response caching**, **authentication**, and **information retrieval using Retrieval Augmented Generation (RAG).**

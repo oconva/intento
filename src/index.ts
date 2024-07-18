@@ -1,7 +1,6 @@
 import { setupGenkit, runServer } from "@oconva/qvikchat/genkit";
 import { defineChatEndpoint } from "@oconva/qvikchat/endpoints";
 import { getIRSPrompt } from "./prompt";
-import { getIRSData } from "./data";
 import { getTestAPIKeyStore } from "./auth";
 
 // Setup Genkit
@@ -13,7 +12,7 @@ defineChatEndpoint({
   enableAuth: true,
   apiKeyStore: getTestAPIKeyStore(),
   chatAgentConfig: {
-    systemPrompt: getIRSPrompt(getIRSData()),
+    systemPrompt: getIRSPrompt(),
   },
 });
 

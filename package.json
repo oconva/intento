@@ -10,6 +10,7 @@
     "lint": "pnpm eslint .",
     "format": "pnpm prettier . --write",
     "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --no-watchman",
+    "buildandtest": "pnpm build && pnpm test",
     "predeploy": "pnpm lint && pnpm format && pnpm build && pnpm test"
   },
   "keywords": [
