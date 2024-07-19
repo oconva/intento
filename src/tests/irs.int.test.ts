@@ -4,7 +4,7 @@ import {
 } from "@oconva/qvikchat/endpoints";
 import { setupGenkit } from "@oconva/qvikchat/genkit";
 import { getIRSPrompt, irsOutputSchema } from "../prompt";
-import { getTestAPIKeyStore } from "../auth";
+import { getInMemoryAPIKeyStore } from "../auth";
 
 /**
  * Integration tests for IRS (Intent Recognition Service).
@@ -33,7 +33,7 @@ describe("IRS Test", () => {
           endpoint: "query",
           responseType: "json",
           enableAuth: true,
-          apiKeyStore: getTestAPIKeyStore(),
+          apiKeyStore: getInMemoryAPIKeyStore(),
           chatAgentConfig: {
             systemPrompt: getIRSPrompt(),
           },

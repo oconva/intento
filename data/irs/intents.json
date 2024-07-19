@@ -34,6 +34,13 @@
         "description": "Measurement unit of the item quantity",
         "type": "string",
         "required": true
+      },
+      {
+        "id": "item_expiry_date",
+        "name": "item expiry date",
+        "description": "date of expiration for the item",
+        "type": "string",
+        "required": true
       }
     ]
   },

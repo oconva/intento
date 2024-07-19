@@ -11,8 +11,8 @@ importers:
         specifier: ^0.5.7
         version: 0.5.7
       "@oconva/qvikchat":
-        specifier: ^1.0.9
-        version: 1.0.9(@google-cloud/firestore@7.9.0)(@google-cloud/storage@7.11.3)(chromadb@1.8.1(openai@4.52.7))(fast-xml-parser@4.4.0)(firebase-functions@5.0.1(firebase-admin@12.2.0))(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.52.7)(prettier@3.3.2)(typescript@5.5.3)
+        specifier: ^2.0.0-alpha.0
+        version: 2.0.0-alpha.0(@google-cloud/firestore@7.9.0)(@google-cloud/storage@7.11.3)(chromadb@1.8.1(openai@4.52.7))(fast-xml-parser@4.4.0)(firebase-functions@5.0.1(firebase-admin@12.2.0))(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.52.7)(prettier@3.3.2)(typescript@5.5.3)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -1850,10 +1850,10 @@ packages:
       }
     engines: { node: ">= 8" }
 
-  "@oconva/qvikchat@1.0.9":
+  "@oconva/qvikchat@2.0.0-alpha.0":
     resolution:
       {
-        integrity: sha512-ezNONdXcG8mmnvi+iK3Sw9ZipQKGj9rg2xBwerKSmray2bqd9v/ISHqybXBzQYDVXI+RS+A7diU2s2p/tMlQ6Q==,
+        integrity: sha512-F671PGPfkP9+QzbxWZSF4fq0yDWXT2s1U3R8Xokq5pqI4fFKiyLKOhrKJo2DYfs1ghx2QSOw4KYptNTtgC/0UQ==,
       }
 
   "@opentelemetry/api-logs@0.49.1":
@@ -9142,10 +9142,10 @@ snapshots:
       "@nodelib/fs.scandir": 2.1.5
       fastq: 1.17.1
 
-  "@oconva/qvikchat@1.0.9(@google-cloud/firestore@7.9.0)(@google-cloud/storage@7.11.3)(chromadb@1.8.1(openai@4.52.7))(fast-xml-parser@4.4.0)(firebase-functions@5.0.1(firebase-admin@12.2.0))(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.52.7)(prettier@3.3.2)(typescript@5.5.3)":
+  "@oconva/qvikchat@2.0.0-alpha.0(@google-cloud/firestore@7.9.0)(@google-cloud/storage@7.11.3)(chromadb@1.8.1(openai@4.52.7))(fast-xml-parser@4.4.0)(firebase-functions@5.0.1(firebase-admin@12.2.0))(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.52.7)(prettier@3.3.2)(typescript@5.5.3)":
     dependencies:
-      "@genkit-ai/ai": 0.5.6
-      "@genkit-ai/core": 0.5.6
+      "@genkit-ai/ai": 0.5.7
+      "@genkit-ai/core": 0.5.7
       "@genkit-ai/dotprompt": 0.5.7
       "@genkit-ai/firebase": 0.5.6(@google-cloud/firestore@7.9.0)(firebase-admin@12.2.0)(firebase-functions@5.0.1(firebase-admin@12.2.0))(prettier@3.3.2)(typescript@5.5.3)
       "@genkit-ai/flow": 0.5.6
@@ -9160,7 +9160,7 @@ snapshots:
       firebase-admin: 12.2.0
       genkitx-chromadb: 0.5.6(openai@4.52.7)
       genkitx-langchain: 0.5.6(@google-cloud/storage@7.11.3)(chromadb@1.8.1(openai@4.52.7))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(firebase-admin@12.2.0)(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.52.7)
-      genkitx-openai: 0.10.0(@genkit-ai/ai@0.5.6)(@genkit-ai/core@0.5.6)
+      genkitx-openai: 0.10.0(@genkit-ai/ai@0.5.7)(@genkit-ai/core@0.5.7)
       langchain: 0.2.9(chromadb@1.8.1(openai@4.52.7))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(handlebars@4.7.8)(ignore@5.3.1)(openai@4.52.7)
       zod: 3.23.8
     transitivePeerDependencies:
@@ -10235,7 +10235,7 @@ snapshots:
 
   "@types/node-fetch@2.6.11":
     dependencies:
-      "@types/node": 18.19.39
+      "@types/node": 20.14.10
       form-data: 4.0.0
 
   "@types/node@18.19.39":
@@ -11447,10 +11447,10 @@ snapshots:
       - youtube-transcript
       - youtubei.js
 
-  genkitx-openai@0.10.0(@genkit-ai/ai@0.5.6)(@genkit-ai/core@0.5.6):
+  genkitx-openai@0.10.0(@genkit-ai/ai@0.5.7)(@genkit-ai/core@0.5.7):
     dependencies:
-      "@genkit-ai/ai": 0.5.6
-      "@genkit-ai/core": 0.5.6
+      "@genkit-ai/ai": 0.5.7
+      "@genkit-ai/core": 0.5.7
       openai: 4.52.7
       zod: 3.23.8
     transitivePeerDependencies:

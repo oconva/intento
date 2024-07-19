@@ -1,7 +1,7 @@
 import { setupGenkit, runServer } from "@oconva/qvikchat/genkit";
 import { defineChatEndpoint } from "@oconva/qvikchat/endpoints";
 import { getIRSPrompt } from "./prompt";
-import { getTestAPIKeyStore } from "./auth";
+import { getInMemoryAPIKeyStore } from "./auth";
 
 // Setup Genkit
 setupGenkit();
@@ -11,7 +11,7 @@ defineChatEndpoint({
   endpoint: "query",
   responseType: "json",
   enableAuth: true,
-  apiKeyStore: getTestAPIKeyStore(),
+  apiKeyStore: getInMemoryAPIKeyStore(),
   chatAgentConfig: {
     systemPrompt: getIRSPrompt(),
   },
