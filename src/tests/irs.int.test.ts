@@ -31,6 +31,7 @@ describe("IRS Test", () => {
         // define the IRS endpoint
         const endpoint = defineChatEndpoint({
           endpoint: "query",
+          responseType: "json",
           enableAuth: true,
           apiKeyStore: getTestAPIKeyStore(),
           chatAgentConfig: {
@@ -38,13 +39,33 @@ describe("IRS Test", () => {
           },
         });
 
-        const response = await getChatEndpointRunner()(endpoint, {
-          query: "add 4 litres of milk",
-        });
+        // Test API key and user id
+        const testKey = "a5zwhp0YlcRVkpnOXchIkL1lrmf0MPg24POM0kO6HcM=";
+        const testUID = "DI2UZuaTWjQPzVCRjzPW";
+
+        const response = await getChatEndpointRunner()(
+          endpoint,
+          {
+            query: "add 4 litres of milk",
+            uid: testUID,
+          },
+          {
+            withLocalAuthContext: {
+              key: testKey,
+            },
+          }
+        );
         expect(response).toBeDefined();
 
+        // should not contain error
+        if ("error" in response) {
+          throw new Error(
+            `Error in response. Response: ${JSON.stringify(response)}`
+          );
+        }
+
         // parse response
-        const parseRes = irsOutputSchema.safeParse(response);
+        const parseRes = irsOutputSchema.safeParse(response.response);
 
         // check if the response is as expected
         expect(parseRes.success).toBe(true);
@@ -76,6 +97,7 @@ describe("IRS Test", () => {
             item_name: "milk",
             item_quantity: "4",
             item_quantity_unit: "litres",
+            item_expiry_date: null,
           });
         }
       },
