@@ -34,6 +34,7 @@ export const getDataAttributes = (
 
 export const getNewIntent = ({
   id,
+  intent_code,
   name,
   description,
   examples,
@@ -41,6 +42,7 @@ export const getNewIntent = ({
   data_attributes,
 }: {
   id: string;
+  intent_code: string;
   name: string;
   description: string;
   examples: string[];
@@ -57,6 +59,7 @@ export const getNewIntent = ({
   return `
   {
     "id": "${id}",
+    "intent_code": "${intent_code}",
     "name": "${name}",
     "description": "${description}",
     "examples": ${examples.join(",")},
