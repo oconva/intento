@@ -4,12 +4,18 @@ Open source intent recognition powered by Large Language Models(LLMs) and Retrie
 
 Built with the missin to make conversational AI more open and accessible to all. No need to spend thousands on empowering your apps with conversational AI and providing your users the ability to interact with your app using natural language. Using [QvikChat](https://github.com/oconva/qvikchat) and Intento you can build powerful, reliable and secure conversational AI services at almost no cost.
 
+<blockquote>
+  Project still under development. Feel free to contribute. All feedback and ideas for improvement welcomed.
+</blockquote>
+
 ## Getting Started
+
+This project shows an example of setting up an intent recognition service for an inventory management app. You can edit the data in the `data` folder according to your requirements and modify the project to suit your needs.
 
 1. Clone the repository:
 
 ```bash
-git clone
+git clone https://github.com/oconva/intento.git
 ```
 
 2. Install the dependencies:
