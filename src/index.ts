@@ -9,6 +9,7 @@ setupGenkit();
 // define the IRS endpoint
 defineChatEndpoint({
   endpoint: "query",
+  responseType: "json",
   enableAuth: true,
   apiKeyStore: getTestAPIKeyStore(),
   chatAgentConfig: {
