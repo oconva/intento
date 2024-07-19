@@ -14,8 +14,6 @@ export const irsOutputSchema = z.union([
   z.object({
     code: z.literal("need-more-info"),
     output: z.object({
-      ir_id: z.string(),
-      irs_id: z.string(),
       data: z.object({
         missing_data: z.array(z.string()),
       }),
@@ -40,9 +38,6 @@ export const getIRSPrompt = () => {
   return _getIRSPrompt({
     details: IRSData.app_details,
     intents: getIRSIntents(IRSData.intents),
-    success_output_schema: JSON.stringify(IRSData.output_schema.success),
-    failure_output_schema: JSON.stringify(IRSData.output_schema.failure),
-    error_output_schema: JSON.stringify(IRSData.output_schema.error),
   });
 };
 
@@ -52,23 +47,16 @@ export const getIRSPrompt = () => {
 const _getIRSPrompt = ({
   details,
   intents,
-  success_output_schema,
-  failure_output_schema,
-  error_output_schema,
 }: {
   details: string;
   intents: string[];
-  success_output_schema: string;
-  failure_output_schema: string;
-  error_output_schema: string;
 }) =>
   defineDotprompt(
     {
       name: "irsPrompt",
-      model: "googleai/gemini-1.5-flash-latest",
       input: {
         schema: z.object({
-          user_input: z.string(),
+          query: z.string(),
         }),
       },
       output: {
@@ -99,20 +87,40 @@ ${intents}
 <output_schema>
 If successful in recognizing an appropriate intent for the given user input, the output JSON must follow below schema:
 
-${success_output_schema}
+{
+  "code": "intent-recognized",
+  "output": {
+    "intent_code": "code of the recognized intent",
+    "data": "extracted data attributes for the recognized intent as key-value pairs (use attribute IDs as keys). If no value, use null."
+  }
+}
 
 If unable to recognize an appropriate intent for the given user input due to lack of enough information, the output JSON must follow below schema:
 
-${failure_output_schema}
+{
+  "code": "need-more-info",
+  "output": {
+    "ir_id": "ID of the intent recognition request",
+    "irs_id": "ID of the intent recognition service",
+    "data": {
+      "missing_data": ["list of missing data attributes (attribute IDs)"]
+    }
+  }
+}
   
 If an error occurs, or you fail to recognize intent for some reason other than the one mentioned above, the output JSON must follow below schema:
 
-${error_output_schema}
+{
+  "code": "intent-not-recognized",
+  "output": {
+    "message": "Unable to recognize intent from user input"
+  }
+}
 </output_schema>
 
 
 {{role "user"}}
 <user_input>
-{{user_input}}
+{{query}}
 </user_input>`
   );
