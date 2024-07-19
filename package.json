@@ -27,21 +27,21 @@
   "author": "Oconva <oconva.org@gmail.com> (https://github.com/oconva)",
   "license": "MIT",
   "devDependencies": {
-    "@eslint/js": "^9.6.0",
+    "@eslint/js": "^9.7.0",
     "@swc/cli": "^0.4.0",
     "@types/cors": "^2.8.17",
     "@types/eslint__js": "^8.42.3",
     "@types/jest": "^29.5.12",
-    "eslint": "^8.57.0",
+    "eslint": "^9.7.0",
     "eslint-config-prettier": "^9.1.0",
     "jest": "^29.7.0",
     "nodemon": "^3.1.4",
-    "prettier": "^3.3.2",
-    "ts-jest": "^29.2.0",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.3",
     "ts-node": "^10.9.2",
     "tsx": "^4.16.2",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^7.16.0"
+    "typescript-eslint": "^7.16.1"
   },
   "dependencies": {
     "@genkit-ai/dotprompt": "^0.5.7",
