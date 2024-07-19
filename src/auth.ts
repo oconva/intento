@@ -1,24 +1,23 @@
-import { InMemoryAPIKeyStore } from "@oconva/qvikchat/auth";
+import * as API_KEYS from "../data/irs/api-keys.json";
+import { APIKeyStatus, InMemoryAPIKeyStore } from "@oconva/qvikchat/auth";
 
 /**
- * Method to get a test API Key store
- * @returns InMemoryAPIKeyStore - Returns a test API Key store
+ * Method to get an in-memory API Key store with API keys loaded from api-keys.json
+ * @returns InMemoryAPIKeyStore - Returns an in-memory API Key store
  */
-export const getTestAPIKeyStore = () => {
+export const getInMemoryAPIKeyStore = () => {
   // Initialize a test API store
   // Create an in-memory API Key store
   const inMemoryAPIKeyStore = new InMemoryAPIKeyStore();
 
-  // Add an API Key to the store
-  // Use this API Key and user-id for testing
-  inMemoryAPIKeyStore.addKey(
-    "a5zwhp0YlcRVkpnOXchIkL1lrmf0MPg24POM0kO6HcM=", // test API Key
-    {
-      uid: "DI2UZuaTWjQPzVCRjzPW",
-      status: "active",
-      endpoints: ["query"], // endpoints to allow access to
-    }
-  );
+  // Add the API keys to the store
+  API_KEYS.forEach((apiKey) => {
+    inMemoryAPIKeyStore.addKey(apiKey.key, {
+      uid: apiKey.uid,
+      status: apiKey.status as APIKeyStatus,
+      endpoints: "all", // endpoints to allow access to
+    });
+  });
 
   return inMemoryAPIKeyStore;
 };
