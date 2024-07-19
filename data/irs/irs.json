@@ -2,6 +2,7 @@
   "id": "jV0DFAmdTGVA8mtTUdlC",
   "name": "inventory-app-irs",
   "description": "Inventory App intent recognition service",
+  "app_details": "Inventory App is a mobile application that helps users to manage their inventory. The app allows users to add, update, and delete items from their inventory.",
   "version": "1.0.0",
   "last_update": "2024-07-01",
   "url": "https://irs.intento.ca/api/a5zwhp0YlcRVkpnOXch",
@@ -29,37 +30,5 @@
     "JnRA9mjEC3mo0rHLacQg",
     "N4uR0nOGMuDAu91u1TRS",
     "NJinDakl1tTqnFjB5hrt"
-  ],
-  "input_schema": {
-    "user_input": "user input to be analyzed for detection of intent"
-  },
-  "output_schema": {
-    "success": [
-      {
-        "code": "intent-recognized",
-        "output": {
-          "intent_code": "code of the recognized intent",
-          "data": "extracted data attributes for the recognized intent as key-value pairs (use attribute IDs as keys)"
-        }
-      }
-    ],
-    "error": [
-      {
-        "code": "need-more-info",
-        "output": {
-          "ir_id": "ID of the intent recognition request",
-          "irs_id": "ID of the intent recognition service",
-          "data": {
-            "missing_data": ["list of missing data attributes (attribute IDs)"]
-          }
-        }
-      },
-      {
-        "code": "intent-not-recognized",
-        "output": {
-          "message": "Unable to recognize intent from user input"
-        }
-      }
-    ]
-  }
+  ]
 }

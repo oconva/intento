@@ -4,6 +4,35 @@ Open source intent recognition powered by Large Language Models(LLMs) and Retrie
 
 Built with the missin to make conversational AI more open and accessible to all. No need to spend thousands on empowering your apps with conversational AI and providing your users the ability to interact with your app using natural language. Using [QvikChat](https://github.com/oconva/qvikchat) and Intento you can build powerful, reliable and secure conversational AI services at almost no cost.
 
+## Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone
+```
+
+2. Install the dependencies:
+
+```bash
+pnpm install
+```
+
+3. Compile the code and start the development server:
+
+```bash
+pnpm dev
+```
+
+To test the endpoint from terminal, you can use the `curl` command. Example below:
+
+```bash
+curl -X POST "http://127.0.0.1:3400/query" -H "Content-Type: application/json" -H "Authorization: a5zwhp0YlcRVkpnOXchIkL1lrmf0MPg24POM0kO6HcM=" -d '{"data": { "query": "add 4 litres milk?", "uid": "DI2UZuaTWjQPzVCRjzPW" } }'
+```
+
+## API Key
+
+By default, the project uses an in-memory API key store, so you can get started with testing the core functionality right away. The keys present in the `data/irs/api-keys.json` file are loaded into this in-memory store.
 
 ## QvikChat
 
@@ -41,3 +70,7 @@ If you encounter any issues or bugs while using QvikChat, please report them by 
 3. Include steps to reproduce the issue and any relevant error messages or screenshots.
 
 [Open Issue](https://github.com/oconva/intento/issues)
+
+```
+
+```
