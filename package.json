@@ -20,12 +20,34 @@
     "conversational ai",
     "chat",
     "chatbot",
-    "chat agent",
     "langchain",
     "genkit"
   ],
   "author": "Oconva <oconva.org@gmail.com> (https://github.com/oconva)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oconva/intento.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oconva/intento/issues"
+  },
+  "homepage": "https://intento.pkural.ca",
   "license": "MIT",
+  "files": [
+    "lib",
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "lib/*"
+  ],
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./lib/index.js",
+      "default": "./lib/index.js"
+    }
+  },
   "devDependencies": {
     "@eslint/js": "^9.7.0",
     "@swc/cli": "^0.4.0",
@@ -46,6 +68,7 @@
   "dependencies": {
     "@genkit-ai/dotprompt": "^0.5.7",
     "@oconva/qvikchat": "^2.0.0-alpha.0",
+    "firebase-admin": "^12.2.0",
     "zod": "^3.23.8"
   }
 }

@@ -170,9 +170,9 @@ export type IntentData = z.infer<typeof IntentDataSchema>;
  * DataSource is an interface for the data source.
  */
 export interface DataSource {
-  getIRSData(): IRSData;
-  getIntentsData(): IntentData[];
-  getAPIKeysData(): APIKeyRecord[];
+  getIRSData(): Promise<IRSData> | IRSData;
+  getIntentsData(): Promise<IntentData[]> | IntentData[];
+  getAPIKeysData(): Promise<APIKeyRecord[]> | APIKeyRecord[];
 }
 
 export const getDataAttributesAsString = (

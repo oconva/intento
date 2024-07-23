@@ -5,7 +5,7 @@ import {
 import { setupGenkit } from "@oconva/qvikchat/genkit";
 import { irsOutputSchema } from "../prompts/prompts";
 import { InMemoryDataSource } from "../data-sources/in-memory-data-source";
-import { getIRSEndpointConfig } from "../endpoints/endpoints";
+import { getServerEndpointConfig } from "../endpoints/endpoints";
 
 // import data
 import * as IRS_DATA from "../../data/irs-data.json";
@@ -49,7 +49,7 @@ describe("IRS Test", () => {
           },
         });
         // Get the chat endpoint configurations from the IRS endpoint configurations
-        const irsEndpointConfig = getIRSEndpointConfig({
+        const irsEndpointConfig = await getServerEndpointConfig({
           endpoint: "irs",
           dataSource: irsDataSource,
         });

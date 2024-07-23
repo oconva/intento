@@ -3,14 +3,14 @@ import { APIKeyRecord, DataSource, IntentData, IRSData } from "./data-sources";
 /**
  * Configuration for the InMemoryDataSource class.
  */
-export interface InMemoryDataSourceConfig {
+export type InMemoryDataSourceConfig = {
   irsId: string;
   files: {
     irsData: IRSData[];
     intentsData: IntentData[];
     apiKeysData: APIKeyRecord[];
   };
-}
+};
 
 /**
  * Represents an in-memory data source that implements the DataSource interface.

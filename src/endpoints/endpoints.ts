@@ -6,11 +6,16 @@ import {
 import { SupportedLLMModels } from "../models/models";
 import { ModelConfig, SupportedModels } from "@oconva/qvikchat/models";
 import { getIRSPrompt } from "../prompts/prompts";
-import { APIKeyStatus, InMemoryAPIKeyStore } from "@oconva/qvikchat/auth";
+import {
+  APIKeyStatus,
+  FirestoreAPIKeyStore,
+  InMemoryAPIKeyStore,
+} from "@oconva/qvikchat/auth";
 import { DefineChatEndpointConfig } from "@oconva/qvikchat/endpoints";
+import { FirestoreDataSource } from "../data-sources/firestore-data-source";
 
 // EndpointNameSchema is a schema for the endpoint name.
-export const EndpointNameSchema = z
+const EndpointNameSchema = z
   .string()
   .min(1)
   .regex(/^[^\s]+$/);
@@ -29,9 +34,9 @@ export type EndpointName = z.infer<typeof EndpointNameSchema>;
  * @property {model.primaryModel} - The primary model configuration.
  * @property {model.primaryModel.name} - The primary model name.
  * @property {model.primaryModel.config} - The primary model configuration.
- * @property {model.queryReformulationModel} - The query reformulation model configuration.
- * @property {model.queryReformulationModel.name} - The query reformulation model name.
- * @property {model.queryReformulationModel.config} - The query reformulation model configuration.
+ * @property {model.queryExpansionModel} - The query expansion model configuration.
+ * @property {model.queryExpansionModel.name} - The query expansion model name.
+ * @property {model.queryExpansionModel.config} - The query expansion model configuration.
  * @property {model.responseEvaluationModel} - The response evaluation model configuration.
  * @property {model.responseEvaluationModel.name} - The response evaluation model name.
  * @property {model.responseEvaluationModel.config} - The response evaluation model configuration.
@@ -48,7 +53,7 @@ export type IRSEndpointConfig = {
       name: SupportedLLMModels;
       config?: ModelConfig;
     };
-    queryReformulationModel?: {
+    queryExpansionModel?: {
       name: SupportedLLMModels;
       config?: ModelConfig;
     };
@@ -59,30 +64,53 @@ export type IRSEndpointConfig = {
   };
 };
 
-export const getIRSEndpointConfig = (
+/**
+ * Method to get API key store based on the data source.
+ * @param config IRS endpoint configurations
+ * @returns Either FirestoreAPIKeyStore or InMemoryAPIKeyStore
+ */
+async function getAPIKeyStore(
   config: IRSEndpointConfig
-): DefineChatEndpointConfig => {
-  // Define the IRS endpoint
-  // Get IRS data
-  const irsData = config.dataSource.getIRSData();
-  // Get IRS prompt using IRS data
-  const irsPrompt = getIRSPrompt({
-    details: irsData.project_description,
-    intents: config.dataSource
-      .getIntentsData()
-      .map((intent) => getIntentDataAsString(intent)),
-  });
-  // Get API keys data
-  const apiKeysData = config.dataSource.getAPIKeysData();
-  // Initialize the api key store
-  const apiKeyStore = new InMemoryAPIKeyStore();
-  // Add API keys to the api key store
-  apiKeysData.forEach((apiKeyData) => {
-    apiKeyStore.addKey(apiKeyData.key, {
-      endpoints: apiKeyData.endpoints,
-      status: apiKeyData.status as APIKeyStatus,
-      uid: apiKeyData.uid,
+): Promise<FirestoreAPIKeyStore | InMemoryAPIKeyStore> {
+  // check if data source is Firestore
+  if (config.dataSource instanceof FirestoreDataSource) {
+    // configure API key store
+    return new FirestoreAPIKeyStore({
+      firebaseApp: config.dataSource.getFirebaseAppInstance(),
+      collectionName: config.dataSource.getAPIKeysCollectionName(),
     });
+  } else {
+    // Initialize the api key store
+    const apiKeyStore = new InMemoryAPIKeyStore();
+    // Get API keys data
+    const apiKeysData = await config.dataSource.getAPIKeysData();
+    // Add API keys to the api key store
+    for (const apiKeyData of apiKeysData) {
+      apiKeyStore.addKey(apiKeyData.key, {
+        endpoints: apiKeyData.endpoints,
+        status: apiKeyData.status as APIKeyStatus,
+        uid: apiKeyData.uid,
+      });
+    }
+    // return the api key store
+    return apiKeyStore;
+  }
+}
+
+/**
+ * Method to get the chat endpoint configurations to setup a server endpoint for an intent recognition service.
+ * @param config IRS endpoint configurations.
+ * @returns Chat endpoint configurations for configuring a server endpoint.
+ */
+export const getServerEndpointConfig = async (
+  config: IRSEndpointConfig
+): Promise<DefineChatEndpointConfig> => {
+  // Get IRS prompt using IRS data and intents data
+  const irsPrompt = getIRSPrompt({
+    details: (await config.dataSource.getIRSData()).project_description,
+    intents: (await config.dataSource.getIntentsData()).map((intent) =>
+      getIntentDataAsString(intent)
+    ),
   });
 
   // Define the endpoint configurations
@@ -101,7 +129,7 @@ export const getIRSEndpointConfig = (
   const endpointConfigWithAuth: DefineChatEndpointConfig = {
     ...endpointConfig,
     enableAuth: true,
-    apiKeyStore,
+    apiKeyStore: await getAPIKeyStore(config),
   };
 
   // return the endpoint configurations
