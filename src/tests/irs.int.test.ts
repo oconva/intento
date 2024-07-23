@@ -3,8 +3,19 @@ import {
   getChatEndpointRunner,
 } from "@oconva/qvikchat/endpoints";
 import { setupGenkit } from "@oconva/qvikchat/genkit";
-import { getIRSPrompt, irsOutputSchema } from "../prompt";
-import { getInMemoryAPIKeyStore } from "../auth";
+import { irsOutputSchema } from "../prompts/prompts";
+import { InMemoryDataSource } from "../data-sources/in-memory-data-source";
+import { getIRSEndpointConfig } from "../endpoints/endpoints";
+
+// import data
+import * as IRS_DATA from "../../data/irs-data.json";
+import * as INTENTS_DATA from "../../data/intents-data.json";
+import * as API_KEYS_DATA from "../../data/api-keys-data.json";
+import {
+  APIKeyRecord,
+  IntentData,
+  IRSData,
+} from "../data-sources/data-sources";
 
 /**
  * Integration tests for IRS (Intent Recognition Service).
@@ -28,16 +39,22 @@ describe("IRS Test", () => {
     test(
       "Confirm IRS is working as expected",
       async () => {
-        // define the IRS endpoint
-        const endpoint = defineChatEndpoint({
-          endpoint: "query",
-          responseType: "json",
-          enableAuth: true,
-          apiKeyStore: getInMemoryAPIKeyStore(),
-          chatAgentConfig: {
-            systemPrompt: getIRSPrompt(),
+        // Create an in-memory data source for IRS
+        const irsDataSource = new InMemoryDataSource({
+          irsId: "jV0DFAmdTGVA8mtTUdlC",
+          files: {
+            irsData: IRS_DATA as IRSData[],
+            intentsData: INTENTS_DATA as IntentData[],
+            apiKeysData: API_KEYS_DATA as APIKeyRecord[],
           },
         });
+        // Get the chat endpoint configurations from the IRS endpoint configurations
+        const irsEndpointConfig = getIRSEndpointConfig({
+          endpoint: "irs",
+          dataSource: irsDataSource,
+        });
+        // Define the chat endpoint
+        const endpoint = defineChatEndpoint(irsEndpointConfig);
 
         // Test API key and user id
         const testKey = "a5zwhp0YlcRVkpnOXchIkL1lrmf0MPg24POM0kO6HcM=";

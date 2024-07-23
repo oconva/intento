@@ -1,6 +1,5 @@
 import { defineDotprompt } from "@genkit-ai/dotprompt";
 import { z } from "zod";
-import { getIRSIntents, getIRSData } from "./data";
 
 // Output schema for IRS query
 export const irsOutputSchema = z.union([
@@ -28,23 +27,9 @@ export const irsOutputSchema = z.union([
 ]);
 
 /**
- * Method to get the IRS prompt given the IRS data
- * @param IRSData IRS data - The data for the IRS
- * @returns Prompt - to be used in IRS endpoint
- */
-export const getIRSPrompt = () => {
-  // get IRS data
-  const IRSData = getIRSData();
-  return _getIRSPrompt({
-    details: IRSData.app_details,
-    intents: getIRSIntents(IRSData.intents),
-  });
-};
-
-/**
  * The intent recognition prompt to be used by the intent recognition service.
  */
-const _getIRSPrompt = ({
+export const getIRSPrompt = ({
   details,
   intents,
 }: {
@@ -91,7 +76,7 @@ If successful in recognizing an appropriate intent for the given user input, the
   "code": "intent-recognized",
   "output": {
     "intent_code": "code of the recognized intent",
-    "data": "extracted data attributes for the recognized intent as key-value pairs (use attribute IDs as keys). If no value, use null."
+    "data": "an object containing the extracted data attributes for the recognized intent as key-value pairs (use attribute IDs as keys). If no value available for a data attribute, use null."
   }
 }
 
@@ -100,8 +85,6 @@ If unable to recognize an appropriate intent for the given user input due to lac
 {
   "code": "need-more-info",
   "output": {
-    "ir_id": "ID of the intent recognition request",
-    "irs_id": "ID of the intent recognition service",
     "data": {
       "missing_data": ["list of missing data attributes (attribute IDs)"]
     }
@@ -118,9 +101,58 @@ If an error occurs, or you fail to recognize intent for some reason other than t
 }
 </output_schema>
 
-
 {{role "user"}}
 <user_input>
 {{query}}
 </user_input>`
   );
+
+/**
+ * Generates a prompt for query expansion, taking app description and intents as input.
+ */
+export function getQueryExpansionPrompt(
+  appDesc: string,
+  intents: string
+): string {
+  return `
+{{role "system"}}
+You are an expert at query expansion. Your task is to enhance and reformulate user input to optimize it for intent recognition. You do not have to identify the intent yourself, just focus on creating a query that an LLM can use to recognize the intent and extract vital information present in the user input.
+
+**Application Description:**
+${appDesc}
+
+**Intents:**
+${intents}
+
+
+**Reformulation Guidelines:**
+
+- **Convert quantities to numerical form:** If the user input contains quantities expressed in words (e.g., "four"), convert them to numbers (e.g., "4"). Don't modify the unit of measurement given by the user, only correct spellings if misspelled.
+- **Identify and extract relevant information:** Extract the item name, quantity, and unit of measurement if present.
+- **Provide context:** If the user input lacks necessary information (e.g., the item name), return an error message explaining what's missing.
+- **Maintain the intent:** Ensure that the reformulated query accurately reflects the original user intent.
+
+**Output Format:**
+
+If successful:
+
+{
+  "code": "success",
+  "output": {
+    "query": "processed user input that has been expanded or reformulated"
+  }
+}
+
+On error or failure:
+
+{
+  "code": "error",
+  "output": {
+    "message": "descriptive error message"
+  }
+}
+
+**User Input:**
+{{user_input}}
+  `;
+}

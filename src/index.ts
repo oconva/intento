@@ -1,21 +1,22 @@
 import { setupGenkit, runServer } from "@oconva/qvikchat/genkit";
-import { defineChatEndpoint } from "@oconva/qvikchat/endpoints";
-import { getIRSPrompt } from "./prompt";
-import { getInMemoryAPIKeyStore } from "./auth";
+import {
+  defineChatEndpoint,
+  DefineChatEndpointConfig,
+} from "@oconva/qvikchat/endpoints";
 
-// Setup Genkit
-setupGenkit();
+export function runIRSServer({
+  endpointConfigs,
+}: {
+  endpointConfigs: DefineChatEndpointConfig[];
+}) {
+  // Setup Genkit
+  setupGenkit();
 
-// define the IRS endpoint
-defineChatEndpoint({
-  endpoint: "query",
-  responseType: "json",
-  enableAuth: true,
-  apiKeyStore: getInMemoryAPIKeyStore(),
-  chatAgentConfig: {
-    systemPrompt: getIRSPrompt(),
-  },
-});
+  // Define endpoints
+  for (const endpointConfig of endpointConfigs) {
+    defineChatEndpoint(endpointConfig);
+  }
 
-// Run server
-runServer();
+  // Run server
+  runServer();
+}
