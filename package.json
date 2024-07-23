@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon -x tsx lib/index.js",
     "dev": "npm run build && npm run start",
-    "build": "swc --strip-leading-paths --delete-dir-on-start -d lib src",
+    "build": "swc --strip-leading-paths --delete-dir-on-start -d lib src && tsc",
     "lint": "pnpm eslint .",
     "format": "pnpm prettier . --write",
     "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --no-watchman",

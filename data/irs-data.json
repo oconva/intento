@@ -1,0 +1,36 @@
+[
+  {
+    "id": "jV0DFAmdTGVA8mtTUdlC",
+    "name": "inventory-app-irs",
+    "description": "Inventory App intent recognition service",
+    "project_description": "Inventory App is a mobile application that helps users to manage their inventory. The app allows users to add, update, and delete items from their inventory.",
+    "version": "1.0.0",
+    "last_update": "2024-07-01",
+    "url": "https://irs.intento.ca/api/a5zwhp0YlcRVkpnOXch",
+    "status": "active",
+    "usage_limit_tokens": null,
+    "api_keys": ["a5zwhp0YlcRVkpnOXchIkL1lrmf0MPg24POM0kO6HcM="],
+    "llm_settings": {
+      "primary": {
+        "model": "gemini-15-flash",
+        "temperature": 0.9
+      },
+      "query_guardrails": {
+        "model": "gemini-15-flash"
+      },
+      "response_guardrails": {
+        "model": "gemini-15-flash"
+      }
+    },
+    "features": {
+      "query_expansion": true,
+      "pii_leakage_detection": true,
+      "response_evaluation": true
+    },
+    "intents": [
+      "JnRA9mjEC3mo0rHLacQg",
+      "N4uR0nOGMuDAu91u1TRS",
+      "NJinDakl1tTqnFjB5hrt"
+    ]
+  }
+]
