@@ -1,6 +1,6 @@
 {
   "name": "intento",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "Open source intent recognition framework",
   "main": "lib/index.js",
   "scripts": {

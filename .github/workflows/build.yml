@@ -30,3 +30,7 @@ jobs:
         run: pnpm prettier . --write
       - name: Build
         run: pnpm build
+      - name: Test
+        run: pnpm test
+    env:
+      GOOGLE_GENAI_API_KEY: ${{ secrets.GOOGLE_GENAI_API_KEY }}
