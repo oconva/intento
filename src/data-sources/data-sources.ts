@@ -171,8 +171,8 @@ export type IntentData = z.infer<typeof IntentDataSchema>;
  */
 export interface DataSource {
   getIRSData(): Promise<IRSData> | IRSData;
-  getIntentsData(): Promise<IntentData[]> | IntentData[];
-  getAPIKeysData(): Promise<APIKeyRecord[]> | APIKeyRecord[];
+  getIntentsData(intentIds: string[]): Promise<IntentData[]> | IntentData[];
+  getAPIKeysData(apiKeys: string[]): Promise<APIKeyRecord[]> | APIKeyRecord[];
 }
 
 export const getDataAttributesAsString = (

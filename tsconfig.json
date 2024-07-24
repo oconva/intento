@@ -1,11 +1,12 @@
 {
-  "include": ["src/**/*", "src/tests"],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "lib", "data", "src/tests"],
   "compileOnSave": true,
   "compilerOptions": {
     "module": "NodeNext",
-    "moduleResolution": "NodeNext",
     "noImplicitReturns": true,
-    "outDir": "lib",
+    "rootDir": "./src",
+    "outDir": "./lib",
     "sourceMap": true,
     "strict": true,
     "target": "ES2017",
@@ -27,8 +28,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "incremental": true,
+    "incremental": false,
     "declaration": true,
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "declarationDir": "./lib"
   }
 }

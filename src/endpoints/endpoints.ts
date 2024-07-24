@@ -70,7 +70,8 @@ export type IRSEndpointConfig = {
  * @returns Either FirestoreAPIKeyStore or InMemoryAPIKeyStore
  */
 async function getAPIKeyStore(
-  config: IRSEndpointConfig
+  config: IRSEndpointConfig,
+  apiKeys: string[]
 ): Promise<FirestoreAPIKeyStore | InMemoryAPIKeyStore> {
   // check if data source is Firestore
   if (config.dataSource instanceof FirestoreDataSource) {
@@ -83,7 +84,7 @@ async function getAPIKeyStore(
     // Initialize the api key store
     const apiKeyStore = new InMemoryAPIKeyStore();
     // Get API keys data
-    const apiKeysData = await config.dataSource.getAPIKeysData();
+    const apiKeysData = await config.dataSource.getAPIKeysData(apiKeys);
     // Add API keys to the api key store
     for (const apiKeyData of apiKeysData) {
       apiKeyStore.addKey(apiKeyData.key, {
@@ -105,11 +106,13 @@ async function getAPIKeyStore(
 export const getServerEndpointConfig = async (
   config: IRSEndpointConfig
 ): Promise<DefineChatEndpointConfig> => {
+  // Get the IRS data
+  const irsData = await config.dataSource.getIRSData();
   // Get IRS prompt using IRS data and intents data
   const irsPrompt = getIRSPrompt({
-    details: (await config.dataSource.getIRSData()).project_description,
-    intents: (await config.dataSource.getIntentsData()).map((intent) =>
-      getIntentDataAsString(intent)
+    details: irsData.project_description,
+    intents: (await config.dataSource.getIntentsData(irsData.intents)).map(
+      (intent) => getIntentDataAsString(intent)
     ),
   });
 
@@ -129,7 +132,7 @@ export const getServerEndpointConfig = async (
   const endpointConfigWithAuth: DefineChatEndpointConfig = {
     ...endpointConfig,
     enableAuth: true,
-    apiKeyStore: await getAPIKeyStore(config),
+    apiKeyStore: await getAPIKeyStore(config, irsData.api_keys),
   };
 
   // return the endpoint configurations

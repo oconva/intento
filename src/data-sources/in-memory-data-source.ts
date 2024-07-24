@@ -50,9 +50,9 @@ export class InMemoryDataSource implements DataSource {
    * @returns The intents data.
    * @throws Error if intents data is not found for the specified IRS id.
    */
-  getIntentsData(): IntentData[] {
-    const data = this.intentsData.filter(
-      (intentData) => intentData.irs_id === this.irsId
+  getIntentsData(intentIds: string[]): IntentData[] {
+    const data = this.intentsData.filter((intentData) =>
+      intentIds.includes(intentData.id)
     );
     if (!data) {
       throw new Error(`Intents data not found for IRS id: ${this.irsId}`);
@@ -65,9 +65,9 @@ export class InMemoryDataSource implements DataSource {
    * @returns The API keys data.
    * @throws Error if API keys data is not found for the specified IRS id.
    */
-  getAPIKeysData(): APIKeyRecord[] {
-    const data = this.apiKeysData.filter(
-      (apiKeyData) => apiKeyData.irs_id === this.irsId
+  getAPIKeysData(apiKeys: string[]): APIKeyRecord[] {
+    const data = this.apiKeysData.filter((apiKeyData) =>
+      apiKeys.includes(apiKeyData.key)
     );
     if (!data) {
       throw new Error(`API keys data not found for IRS id: ${this.irsId}`);
