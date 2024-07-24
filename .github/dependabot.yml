@@ -8,53 +8,53 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
     commit-message:
-      prefix: "Dependency Updates"
+      prefix: 'Dependency Updates'
     groups:
       # group dev dependencies together in a single pull request
       dev-dependencies:
         applies-to: version-updates
         patterns:
-          - "@eslint*"
-          - "@swc*"
-          - "@types*"
-          - "eslint*"
-          - "jest"
-          - "nodemon"
-          - "prettier"
-          - "ts-*"
-          - "tsx"
-          - "typescript*"
+          - '@eslint*'
+          - '@swc*'
+          - '@types*'
+          - 'eslint*'
+          - 'jest'
+          - 'nodemon'
+          - 'prettier'
+          - 'ts-*'
+          - 'tsx'
+          - 'typescript*'
       dev-dependencies-security-updates:
         applies-to: security-updates
         patterns:
-          - "@eslint*"
-          - "@swc*"
-          - "@types*"
-          - "eslint*"
-          - "jest"
-          - "nodemon"
-          - "prettier"
-          - "ts-*"
-          - "tsx"
-          - "typescript*"
+          - '@eslint*'
+          - '@swc*'
+          - '@types*'
+          - 'eslint*'
+          - 'jest'
+          - 'nodemon'
+          - 'prettier'
+          - 'ts-*'
+          - 'tsx'
+          - 'typescript*'
       # group QvikChat related updates in a single pull request
       qvikchat:
         applies-to: version-updates
         patterns:
-          - "@oconva/qvikchat"
+          - '@oconva/qvikchat'
       qvikchat-security-updates:
         applies-to: security-updates
         patterns:
-          - "@oconva/qvikchat"
+          - '@oconva/qvikchat'
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
     commit-message:
-      prefix: "GitHub Actions Updates"
+      prefix: 'GitHub Actions Updates'

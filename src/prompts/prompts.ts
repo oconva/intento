@@ -1,17 +1,17 @@
-import { defineDotprompt } from "@genkit-ai/dotprompt";
-import { z } from "zod";
+import {defineDotprompt} from '@genkit-ai/dotprompt';
+import {z} from 'zod';
 
 // Output schema for IRS query
 export const irsOutputSchema = z.union([
   z.object({
-    code: z.literal("intent-recognized"),
+    code: z.literal('intent-recognized'),
     output: z.object({
       intent_code: z.string(),
       data: z.any(),
     }),
   }),
   z.object({
-    code: z.literal("need-more-info"),
+    code: z.literal('need-more-info'),
     output: z.object({
       data: z.object({
         missing_data: z.array(z.string()),
@@ -19,7 +19,7 @@ export const irsOutputSchema = z.union([
     }),
   }),
   z.object({
-    code: z.literal("intent-not-recognized"),
+    code: z.literal('intent-not-recognized'),
     output: z.object({
       message: z.string(),
     }),
@@ -38,14 +38,14 @@ export const getIRSPrompt = ({
 }) =>
   defineDotprompt(
     {
-      name: "irsPrompt",
+      name: 'irsPrompt',
       input: {
         schema: z.object({
           query: z.string(),
         }),
       },
       output: {
-        format: "json",
+        format: 'json',
         schema: irsOutputSchema,
       },
     },

@@ -1,9 +1,9 @@
-import z from "zod";
+import z from 'zod';
 
 /**
  * SupportedLLMModels is the list of supported LLM models.
  */
-export type SupportedLLMModels = "gemini15flash" | "gemini15pro" | "gpt4o";
+export type SupportedLLMModels = 'gemini15flash' | 'gemini15pro' | 'gpt4o';
 
 // ModelTemperatureSchema is a schema for the model temperature.
 export const ModelTemperatureSchema = z.number().min(0).max(1);

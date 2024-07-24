@@ -1,4 +1,4 @@
-import z from "zod";
+import z from 'zod';
 
 /**
  * IRSDataSchema is a schema for the IRS data.
@@ -25,7 +25,7 @@ export const IRSDataSchema = z.object({
   project_description: z.string(),
   version: z.string(),
   last_update: z.string(),
-  status: z.enum(["active", "inactive"]),
+  status: z.enum(['active', 'inactive']),
   usage_limit_tokens: z.nullable(z.number()),
   api_keys: z.array(z.string()),
   intents: z.array(z.string()),
@@ -73,8 +73,8 @@ export const APIKeyRecordSchema = z.object({
   name: z.string().optional(),
   description: z.string().optional(),
   last_used: z.string(),
-  status: z.enum(["active", "inactive"]),
-  endpoints: z.literal("all").or(z.array(z.string().min(1))),
+  status: z.enum(['active', 'inactive']),
+  endpoints: z.literal('all').or(z.array(z.string().min(1))),
   usage_limit_tokens: z.number().optional(),
 });
 
@@ -134,7 +134,7 @@ export const IntentDataSchema = z.object({
   id: z.string().min(1),
   irs_id: z.string().min(1),
   uid: z.string().min(1),
-  status: z.enum(["active", "inactive"]),
+  status: z.enum(['active', 'inactive']),
   last_update: z.string(),
   intent_code: z.string().min(1),
   name: z.string().min(1),
@@ -178,7 +178,7 @@ export interface DataSource {
 export const getDataAttributesAsString = (
   dataAttributes: IntentDataAttribute[]
 ): string => {
-  let res = "";
+  let res = '';
 
   dataAttributes.forEach((dataAttribute) => {
     res += `
@@ -202,8 +202,8 @@ export const getIntentDataAsString = (intentData: IntentData): string => {
     "intent_code": "${intentData.intent_code}",
     "name": "${intentData.name}",
     "description": "${intentData.description}",
-    "examples": ${intentData.examples.join(",")},
-    "primary_identifying_keywords": ${intentData.primary_identifying_keywords.join(",")},
+    "examples": ${intentData.examples.join(',')},
+    "primary_identifying_keywords": ${intentData.primary_identifying_keywords.join(',')},
     "data_attributes": ${getDataAttributesAsString(intentData.data_attributes)}
   }
   `;

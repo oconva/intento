@@ -1,5 +1,5 @@
-import { APIKeyRecord, DataSource, IntentData, IRSData } from "./data-sources";
-import { app, AppOptions, initializeApp } from "firebase-admin";
+import {APIKeyRecord, DataSource, IntentData, IRSData} from './data-sources';
+import {app, AppOptions, initializeApp} from 'firebase-admin';
 
 /**
  * Can either provide configurations to initialize a new Firebase app or use an existing Firebase app instance.
@@ -45,9 +45,9 @@ export class FirestoreDataSource implements DataSource {
     this.irsId = config.irsId;
     this.collections = config.collections;
     this.firebaseConfig =
-      "firebaseConfig" in config ? config.firebaseConfig : undefined;
+      'firebaseConfig' in config ? config.firebaseConfig : undefined;
     this.firebaseApp =
-      "firebaseApp" in config
+      'firebaseApp' in config
         ? config.firebaseApp
         : initializeApp(config.firebaseConfig);
   }
@@ -64,7 +64,7 @@ export class FirestoreDataSource implements DataSource {
       .doc(this.irsId);
     const docSnapshot = await docRef.get();
     if (!docSnapshot.exists) {
-      throw new Error("IRS data not found for the specified id.");
+      throw new Error('IRS data not found for the specified id.');
     }
     return docSnapshot.data() as IRSData;
   }
@@ -77,7 +77,7 @@ export class FirestoreDataSource implements DataSource {
    */
   async getIntentsData(intentIds: string[]): Promise<IntentData[]> {
     if (!intentIds || intentIds.length === 0) {
-      throw new Error("No intent IDs provided.");
+      throw new Error('No intent IDs provided.');
     }
 
     // Fetch each intent document using the provided IDs
@@ -108,7 +108,7 @@ export class FirestoreDataSource implements DataSource {
    */
   async getAPIKeysData(apiKeys: string[]): Promise<APIKeyRecord[]> {
     if (!apiKeys || apiKeys.length === 0) {
-      throw new Error("No API keys provided.");
+      throw new Error('No API keys provided.');
     }
 
     // Fetch each API key document using the provided keys

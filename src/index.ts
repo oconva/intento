@@ -2,36 +2,33 @@ import {
   setupGenkit,
   runServer,
   SetupGenkitConfig,
-} from "@oconva/qvikchat/genkit";
+} from '@oconva/qvikchat/genkit';
 import {
   defineChatEndpoint,
   DefineChatEndpointConfig,
-} from "@oconva/qvikchat/endpoints";
-import { StartServerParamsType } from "@oconva/qvikchat/config";
+} from '@oconva/qvikchat/endpoints';
+import {StartServerParamsType} from '@oconva/qvikchat/config';
 import {
   type EndpointName,
   type IRSEndpointConfig,
   getServerEndpointConfig,
-} from "./endpoints/endpoints";
+} from './endpoints/endpoints';
 import {
   type IRSData,
   type APIKeyRecord,
   type IntentDataAttribute,
   type IntentData,
   type DataSource,
-} from "./data-sources/data-sources";
+} from './data-sources/data-sources';
 import {
   type InMemoryDataSourceConfig,
   InMemoryDataSource,
-} from "./data-sources/in-memory-data-source";
+} from './data-sources/in-memory-data-source';
 import {
   type FirestoreDataSourceConfig,
   FirestoreDataSource,
-} from "./data-sources/firestore-data-source";
-import {
-  type SupportedLLMModels,
-  type ModelTemperature,
-} from "./models/models";
+} from './data-sources/firestore-data-source';
+import {type SupportedLLMModels, type ModelTemperature} from './models/models';
 
 /**
  * Method to run the IRS server.

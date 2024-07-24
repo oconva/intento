@@ -1,18 +1,15 @@
-import z from "zod";
-import {
-  DataSource,
-  getIntentDataAsString,
-} from "../data-sources/data-sources";
-import { SupportedLLMModels } from "../models/models";
-import { ModelConfig, SupportedModels } from "@oconva/qvikchat/models";
-import { getIRSPrompt } from "../prompts/prompts";
+import z from 'zod';
+import {DataSource, getIntentDataAsString} from '../data-sources/data-sources';
+import {SupportedLLMModels} from '../models/models';
+import {ModelConfig, SupportedModels} from '@oconva/qvikchat/models';
+import {getIRSPrompt} from '../prompts/prompts';
 import {
   APIKeyStatus,
   FirestoreAPIKeyStore,
   InMemoryAPIKeyStore,
-} from "@oconva/qvikchat/auth";
-import { DefineChatEndpointConfig } from "@oconva/qvikchat/endpoints";
-import { FirestoreDataSource } from "../data-sources/firestore-data-source";
+} from '@oconva/qvikchat/auth';
+import {DefineChatEndpointConfig} from '@oconva/qvikchat/endpoints';
+import {FirestoreDataSource} from '../data-sources/firestore-data-source';
 
 // EndpointNameSchema is a schema for the endpoint name.
 const EndpointNameSchema = z
@@ -119,7 +116,7 @@ export const getServerEndpointConfig = async (
   // Define the endpoint configurations
   const endpointConfig: DefineChatEndpointConfig = {
     endpoint: config.endpoint,
-    responseType: "json",
+    responseType: 'json',
     verbose: config.verbose,
     chatAgentConfig: {
       systemPrompt: irsPrompt,

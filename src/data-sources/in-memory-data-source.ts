@@ -1,4 +1,4 @@
-import { APIKeyRecord, DataSource, IntentData, IRSData } from "./data-sources";
+import {APIKeyRecord, DataSource, IntentData, IRSData} from './data-sources';
 
 /**
  * Configuration for the InMemoryDataSource class.
