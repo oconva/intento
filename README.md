@@ -1,44 +1,33 @@
 # Intento
 
-Open source intent recognition powered by Large Language Models(LLMs) and Retrieval Augmented Generation (RAG).
+Intento is a simple-to-use open source framework that lets you build and deploy **intent recognition services** powered by large language models (**LLM**). It aim to make it easier, accessible, and faster for developers to empower their apps and projects with **conversational AI**.
 
-Built with the missin to make conversational AI more open and accessible to all. No need to spend thousands on empowering your apps with conversational AI and providing your users the ability to interact with your app using natural language. Using [QvikChat](https://github.com/oconva/qvikchat) and Intento you can build powerful, reliable and secure conversational AI services at almost no cost.
+Built with the mission to make conversational AI more open and accessible to all. No need to spend thousands on empowering your apps with conversational AI and providing your users the ability to interact with your app using natural language. Using [QvikChat](https://github.com/oconva/qvikchat) and Intento you can build powerful, reliable and secure conversational AI services at almost no cost.
 
 <blockquote>
   Project still under development. Feel free to contribute. All feedback and ideas for improvement welcomed.
 </blockquote>
 
-## Getting Started
+Intento focuses only on one aspect of conversational AI - **intent recognition**. This helps Intento to be more specialized, efficient, and faster. This is also lets you to easily integrate it with your existing conversational AI services or build a new one from scratch. Moreover, it allows Intento open source project to be more maintainable and reduces the usage and implementation complexity.
 
-This project shows an example of setting up an intent recognition service for an inventory management app. You can edit the data in the `data` folder according to your requirements and modify the project to suit your needs.
+[Get Started](https://intento.pkural.ca) | [Intento Starter Template](https://github.com/oconva/intento-starter-template)
 
-1. Clone the repository:
+![Example of an intent recognition service built using Intento](https://intento.pkural.ca/images/intento_irs_demo.svg)
 
-```bash
-git clone https://github.com/oconva/intento.git
-```
+## Why use Intento?
 
-2. Install the dependencies:
+Consider a scenario where you have a chat interface in your app or website, where users can give voice or text commands to get something done. You need to understand what the user is asking for, and then take the appropriate action based on the user's **intent**. You may also need to extract some **information** from the user input to be able to perform the action. This is where **Intento** comes in.
 
-```bash
-pnpm install
-```
+Intento helps you decipher what that something is that the user wants done, and helps you extract the required information from the user input.
 
-3. Compile the code and start the development server:
+## Features
 
-```bash
-pnpm dev
-```
-
-To test the endpoint from terminal, you can use the `curl` command. Example below:
-
-```bash
-curl -X POST "http://127.0.0.1:3400/query" -H "Content-Type: application/json" -H "Authorization: a5zwhp0YlcRVkpnOXchIkL1lrmf0MPg24POM0kO6HcM=" -d '{"data": { "query": "add 4 litres milk?", "uid": "DI2UZuaTWjQPzVCRjzPW" } }'
-```
-
-## API Key
-
-By default, the project uses an in-memory API key store, so you can get started with testing the core functionality right away. The keys present in the `data/irs/api-keys.json` file are loaded into this in-memory store.
+- **Powered by LLMs**: Intento uses large language models (LLMs) to recognize intents and extract information from user input. No need to constantly train and update custom machine learning models or NLU systems.
+- **Simple and Easy to Use**: Intento is designed to be simple and easy to use, with a minimal learning curve. You can get started with Intento and deploy your own intent recognition service in minutes and in few lines of code.
+- **Deploy to any NodeJS platform**: Deploy your app or service to any NodeJS platform, including Firebase, Google Cloud, AWS, Heroku, etc., with ease.
+- **Firebase Firestore**: In-built support for using [Cloud Firestore](https://firebase.google.com/docs/firestore) as the data source for storing information of your intent recognition service, including intents and API keys.
+- **Advanced Features**: Intento provides support advance features like query expansion and response evaluation to improve the accuracy and performance of your intent recognition service.
+- **Focus on Performance, Reliability, and Security**: Every component in Intento is built to ensure low latency and scalable performance without compromising on security. From using prompts that help mitigate LLM hallucination and deter prompt injection attacks, to providing in-built support for authentication for each endpoint, Intento is designed to help you build secure, performant, and reliable intent recognition services.
 
 ## QvikChat
 
@@ -76,7 +65,3 @@ If you encounter any issues or bugs while using QvikChat, please report them by 
 3. Include steps to reproduce the issue and any relevant error messages or screenshots.
 
 [Open Issue](https://github.com/oconva/intento/issues)
-
-```
-
-```
