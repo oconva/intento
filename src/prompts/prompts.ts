@@ -1,7 +1,9 @@
 import {defineDotprompt} from '@genkit-ai/dotprompt';
 import {z} from 'zod';
 
-// Output schema for IRS query
+/**
+ * Output schema for IRS query
+ */
 export const irsOutputSchema = z.union([
   z.object({
     code: z.literal('intent-recognized'),
@@ -25,6 +27,67 @@ export const irsOutputSchema = z.union([
     }),
   }),
 ]);
+
+/**
+ * Method to get the IRS output schema with a given data schema.
+ * If no data schema is provided, the output schema will have any data type.
+ * @param dataSchema Data schema to use for the output schema
+ * @returns IRS output schema with the given data schema
+ */
+export function getIRSOutputSchema(dataSchema?: z.ZodType) {
+  return z.union([
+    z.object({
+      code: z.literal('intent-recognized'),
+      output: z.object({
+        intent_code: z.string(),
+        data: dataSchema ?? z.any(),
+      }),
+    }),
+    z.object({
+      code: z.literal('need-more-info'),
+      output: z.object({
+        data: z.object({
+          missing_data: z.array(z.string()),
+        }),
+      }),
+    }),
+    z.object({
+      code: z.literal('intent-not-recognized'),
+      output: z.object({
+        message: z.string(),
+      }),
+    }),
+  ]);
+}
+
+/**
+ * Output schema for IRS query
+ */
+export type IRSOutput = z.infer<typeof irsOutputSchema>;
+
+/**
+ * Method to parse a given output as an IRS output object.
+ * @param output Output to parse as IRS output object
+ * @param safe If true, returns a safe parsed object with error information
+ * @returns Parsed IRS output object
+ */
+export function parseIRSOutput(output: unknown, safe: boolean = true) {
+  return safe
+    ? irsOutputSchema.safeParse(output)
+    : irsOutputSchema.parse(output);
+}
+
+/**
+ * Method to parse a given output as an IRS output object asynchronously.
+ * @param output Output to parse as IRS output object
+ * @param safe If true, returns a safe parsed object with error information
+ * @returns Parsed IRS output object
+ */
+export function parseIRSOutputAsync(output: unknown, safe: boolean = true) {
+  return safe
+    ? irsOutputSchema.safeParseAsync(output)
+    : irsOutputSchema.parseAsync(output);
+}
 
 /**
  * The intent recognition prompt to be used by the intent recognition service.
