@@ -4,10 +4,6 @@ Intento is a simple-to-use open source framework that lets you build and deploy 
 
 Built with the mission to make conversational AI more open and accessible to all. No need to spend thousands on empowering your apps with conversational AI and providing your users the ability to interact with your app using natural language. Using [QvikChat](https://github.com/oconva/qvikchat) and Intento you can build powerful, reliable and secure conversational AI services at almost no cost.
 
-<blockquote>
-  Project still under development. Feel free to contribute. All feedback and ideas for improvement welcomed.
-</blockquote>
-
 Intento focuses only on one aspect of conversational AI - **intent recognition**. This helps Intento to be more specialized, efficient, and faster. This is also lets you to easily integrate it with your existing conversational AI services or build a new one from scratch. Moreover, it allows Intento open source project to be more maintainable and reduces the usage and implementation complexity.
 
 [Get Started](https://intento.pkural.ca) | [Intento Starter Template](https://github.com/oconva/intento-starter-template)
@@ -35,19 +31,6 @@ Intento helps you decipher what that something is that the user wants done, and 
 
 [Get Started](https://qvikchat.pkural.ca/getting-started) | [Documentation](https://qvikchat.pkural.ca)
 
-## QvikChat Starter Template
-
-This project was scaffolded using the [QvikChat Starter Template](https://github.com/oconva/qvikchat-starter-template). It comes pre-configured with the following features:
-
-- **QvikChat**: QvikChat installed and configured to start serving chat endpoints.
-- **TypeScript**: TypeScript to allow you to write type-safe code efficiently.
-- **ESLint**: ESLint to enforce code quality and consistency.
-- **Prettier**: Prettier to format your code automatically and ensure consistent code style.
-- **Jest**: Jest to run your tests and ensure your code works as expected.
-- **GitHub Actions**: GitHub Actions to run your tests and lint your code automatically on every push.
-- **SWC**: For faster and more efficient TypeScript compilation.
-- **PNPM**: PNPM to manage your dependencies efficiently.
-
 ## Contributions
 
 Contributions are welcome! Please refer to the [contribution guidelines](CONTRIBUTING.md) for more information.
@@ -58,7 +41,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Issues
 
-If you encounter any issues or bugs while using QvikChat, please report them by following these steps:
+If you encounter any issues or bugs while using Intento, please report them by following these steps:
 
 1. Check if the issue has already been reported by searching our issue tracker.
 2. If the issue hasn't been reported, create a new issue and provide a detailed description of the problem.
