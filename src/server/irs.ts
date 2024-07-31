@@ -1,10 +1,8 @@
 import {
-  setupGenkit,
-  runServer,
   SetupGenkitConfig,
-} from '@oconva/qvikchat/genkit';
-import {defineChatEndpoint} from '@oconva/qvikchat/endpoints';
-import {StartServerParamsType} from '@oconva/qvikchat/config';
+  StartServerParamsType,
+  configureAndRunServer,
+} from '@oconva/qvikchat';
 import {
   getServerEndpointConfig,
   IRSEndpointConfig,
@@ -29,14 +27,16 @@ export async function runIRSServer({
   genkitConfig?: SetupGenkitConfig;
   serverConfig?: StartServerParamsType;
 }) {
-  // Setup Genkit
-  setupGenkit(genkitConfig);
-
+  const chatEndpointConfigs = [];
   // Define endpoints using the provided configurations
   for (const endpointConfig of endpointConfigs) {
-    defineChatEndpoint(await getServerEndpointConfig(endpointConfig));
+    chatEndpointConfigs.push(await getServerEndpointConfig(endpointConfig));
   }
 
-  // Run server
-  runServer(serverConfig);
+  // Run server after setting up Genkit and defining endpoints
+  configureAndRunServer({
+    genkitConfig,
+    serverConfig,
+    endpointConfigs: chatEndpointConfigs,
+  });
 }
