@@ -2,7 +2,7 @@ import {
   defineChatEndpoint,
   getChatEndpointRunner,
 } from '@oconva/qvikchat/endpoints';
-import {setupGenkit} from '@oconva/qvikchat/genkit';
+import {setupGenkit} from '@oconva/qvikchat';
 import {irsOutputSchema} from '../prompts/prompts';
 import {InMemoryDataSource} from '../data-sources/in-memory-data-source';
 import {getServerEndpointConfig} from '../endpoints/endpoints';
@@ -69,7 +69,7 @@ describe('IRS Test', () => {
           }
         );
         expect(response).toBeDefined();
-
+        console.dir(response);
         // should not contain error
         if ('error' in response) {
           throw new Error(
@@ -85,7 +85,7 @@ describe('IRS Test', () => {
 
         // get parsed data
         const parsedData = parseRes.data;
-
+        console.log(parsedData);
         // parsed data shouldn't be undefined
         if (parsedData === undefined) {
           throw new Error('parsed data is undefined');

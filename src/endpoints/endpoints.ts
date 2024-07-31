@@ -2,7 +2,11 @@ import z from 'zod';
 import {DataSource, getIntentDataAsString} from '../data-sources/data-sources';
 import {SupportedLLMModels} from '../models/models';
 import {ModelConfig, SupportedModels} from '@oconva/qvikchat/models';
-import {getIRSPrompt, type IRSOutput} from '../prompts/prompts';
+import {
+  getIRSPrompt,
+  irsOutputSchema,
+  type IRSOutput,
+} from '../prompts/prompts';
 import {
   APIKeyStatus,
   FirestoreAPIKeyStore,
@@ -127,13 +131,18 @@ export const getServerEndpointConfig = async (
   // Define the endpoint configurations
   const endpointConfig: DefineChatEndpointConfig = {
     endpoint: config.endpoint,
-    responseType: 'json',
-    verbose: config.verbose,
-    chatAgentConfig: {
-      systemPrompt: irsPrompt,
-      model: config.model?.primaryModel?.name as SupportedModels,
-      modelConfig: config.model?.primaryModel?.config,
+    systemPrompt: irsPrompt,
+    outputSchema: {
+      format: 'json',
+      schema: z.object({
+        response: irsOutputSchema,
+      }),
     },
+    modelConfig: {
+      name: config.model?.primaryModel?.name as SupportedModels,
+      ...config.model?.primaryModel?.config,
+    },
+    verbose: config.verbose,
   };
 
   // Define the endpoint configurations with authentication
