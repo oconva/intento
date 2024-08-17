@@ -12,7 +12,7 @@ import {
   FirestoreAPIKeyStore,
   InMemoryAPIKeyStore,
 } from '@oconva/qvikchat/auth';
-import {DefineChatEndpointConfig} from '@oconva/qvikchat/endpoints';
+import {ChatEndpointConfig} from '@oconva/qvikchat';
 import {FirestoreDataSource} from '../data-sources/firestore-data-source';
 
 /**
@@ -25,7 +25,7 @@ export type IRSEndpointResponse = {
 /**
  * EndpointNameSchema is a schema for the endpoint name.
  */
-const EndpointNameSchema = z
+export const EndpointNameSchema = z
   .string()
   .min(1)
   .regex(/^[^\s]+$/);
@@ -117,7 +117,7 @@ async function getAPIKeyStore(
  */
 export const getServerEndpointConfig = async (
   config: IRSEndpointConfig
-): Promise<DefineChatEndpointConfig> => {
+): Promise<ChatEndpointConfig> => {
   // Get the IRS data
   const irsData = await config.dataSource.getIRSData();
   // Get IRS prompt using IRS data and intents data
@@ -129,7 +129,7 @@ export const getServerEndpointConfig = async (
   });
 
   // Define the endpoint configurations
-  const endpointConfig: DefineChatEndpointConfig = {
+  const endpointConfig: ChatEndpointConfig = {
     endpoint: config.endpoint,
     systemPrompt: irsPrompt,
     outputSchema: {
@@ -146,7 +146,7 @@ export const getServerEndpointConfig = async (
   };
 
   // Define the endpoint configurations with authentication
-  const endpointConfigWithAuth: DefineChatEndpointConfig = {
+  const endpointConfigWithAuth: ChatEndpointConfig = {
     ...endpointConfig,
     enableAuth: true,
     apiKeyStore: await getAPIKeyStore(config, irsData.api_keys),

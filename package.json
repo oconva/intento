@@ -1,6 +1,6 @@
 {
   "name": "@oconva/intento",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Open source intent recognition framework",
   "main": "lib/index.js",
   "scripts": {
@@ -49,7 +49,7 @@
     }
   },
   "devDependencies": {
-    "@eslint/js": "^9.7.0",
+    "@eslint/js": "^9.9.0",
     "@swc/cli": "^0.4.0",
     "@types/cors": "^2.8.17",
     "@types/eslint__js": "^8.42.3",
@@ -59,15 +59,15 @@
     "jest": "^29.7.0",
     "nodemon": "^3.1.4",
     "prettier": "^3.3.3",
-    "ts-jest": "^29.2.3",
+    "ts-jest": "^29.2.4",
     "ts-node": "^10.9.2",
-    "tsx": "^4.16.2",
+    "tsx": "^4.17.0",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^7.16.1"
+    "typescript-eslint": "^8.1.0"
   },
   "dependencies": {
     "@genkit-ai/dotprompt": "^0.5.7",
-    "@oconva/qvikchat": "^2.0.0-alpha.4",
+    "@oconva/qvikchat": "^2.0.2",
     "firebase-admin": "^12.2.0",
     "zod": "^3.23.8"
   }

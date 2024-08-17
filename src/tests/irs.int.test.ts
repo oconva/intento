@@ -1,7 +1,4 @@
-import {
-  defineChatEndpoint,
-  getChatEndpointRunner,
-} from '@oconva/qvikchat/endpoints';
+import {defineChatEndpoint, getChatEndpointRunner} from '@oconva/qvikchat';
 import {setupGenkit} from '@oconva/qvikchat';
 import {irsOutputSchema} from '../prompts/prompts';
 import {InMemoryDataSource} from '../data-sources/in-memory-data-source';
