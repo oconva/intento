@@ -1,6 +1,6 @@
 {
   "name": "@oconva/intento",
-  "version": "1.0.3",
+  "version": "1.0.2",
   "description": "Open source intent recognition framework",
   "main": "lib/index.js",
   "scripts": {
