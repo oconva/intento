@@ -16,7 +16,7 @@ importers:
         version: 2.0.2(@google-cloud/storage@7.11.3)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(fast-xml-parser@4.4.0)(google-auth-library@9.11.0)(googleapis@137.1.0)(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.56.0(zod@3.23.8))
       firebase-admin:
         specifier: ^12.2.0
-        version: 12.5.0
+        version: 12.7.0
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -422,23 +422,23 @@ packages:
   '@firebase/auth-interop-types@0.2.3':
     resolution: {integrity: sha512-Fc9wuJGgxoxQeavybiuwgyi+0rssr76b+nHpj+eGhXFYAdudMWyfBHvFL/I5fEHniUM/UQdFzi9VXJK2iZF7FQ==}
 
-  '@firebase/component@0.6.8':
-    resolution: {integrity: sha512-LcNvxGLLGjBwB0dJUsBGCej2fqAepWyBubs4jt1Tiuns7QLbXHuyObZ4aMeBjZjWx4m8g1LoVI9QFpSaq/k4/g==}
+  '@firebase/component@0.6.9':
+    resolution: {integrity: sha512-gm8EUEJE/fEac86AvHn8Z/QW8BvR56TBw3hMW0O838J/1mThYQXAIQBgUv75EqlCZfdawpWLrKt1uXvp9ciK3Q==}
 
-  '@firebase/database-compat@1.0.6':
-    resolution: {integrity: sha512-1OGA0sLY47mkXjhICCrUTXEYFnSSXoiXWm1SHsN62b+Lzs5aKA3aWTjTUmYIoK93kDAMPkYpulSv8jcbH4Hwew==}
+  '@firebase/database-compat@1.0.8':
+    resolution: {integrity: sha512-OpeWZoPE3sGIRPBKYnW9wLad25RaWbGyk7fFQe4xnJQKRzlynWeFBSRRAoLE2Old01WXwskUiucNqUUVlFsceg==}
 
-  '@firebase/database-types@1.0.4':
-    resolution: {integrity: sha512-mz9ZzbH6euFXbcBo+enuJ36I5dR5w+enJHHjy9Y5ThCdKUseqfDjW3vCp1YxE9zygFCSjJJ/z1cQ+zodvUcwPQ==}
+  '@firebase/database-types@1.0.5':
+    resolution: {integrity: sha512-fTlqCNwFYyq/C6W7AJ5OCuq5CeZuBEsEwptnVxlNPkWCo5cTTyukzAHRSO/jaQcItz33FfYrrFk1SJofcu2AaQ==}
 
-  '@firebase/database@1.0.6':
-    resolution: {integrity: sha512-nrexUEG/fpVlHtWKkyfhTC3834kZ1WS7voNyqbBsBCqHXQOvznN5Z0L3nxBqdXSJyltNAf4ndFlQqm5gZiEczQ==}
+  '@firebase/database@1.0.8':
+    resolution: {integrity: sha512-dzXALZeBI1U5TXt6619cv0+tgEhJiwlUtQ55WNZY7vGAjv7Q1QioV969iYwt1AQQ0ovHnEW0YW9TiBfefLvErg==}
 
   '@firebase/logger@0.4.2':
     resolution: {integrity: sha512-Q1VuA5M1Gjqrwom6I6NUU4lQXdo9IAQieXlujeHZWvRt1b7qQ0KwBaNAjgxG27jgF9/mUwsNmO8ptBCGVYhB0A==}
 
-  '@firebase/util@1.9.7':
-    resolution: {integrity: sha512-fBVNH/8bRbYjqlbIhZ+lBtdAAS4WqZumx03K06/u7fJSpz1TGjEMm1ImvKD47w+xaFKIP2ori6z8BrbakRfjJA==}
+  '@firebase/util@1.10.0':
+    resolution: {integrity: sha512-xKtx4A668icQqoANRxyDLBLz51TAbDP9KRfpbKGxiCAW346d0BeJe5vN6/hKxxmWwnZ0mautyv39JxviwwQMOQ==}
 
   '@genkit-ai/ai@0.5.6':
     resolution: {integrity: sha512-nuv60tlGgLcfjZmFy2nNRqPrRu2MK/MXH5XkuzSPxy/bPfQEdJ6PoV1fk1k4YXzzw1czt06G/4zTpdaLd5ugLQ==}
@@ -2051,6 +2051,7 @@ packages:
   eslint@8.57.0:
     resolution: {integrity: sha512-dZ6+mexnaTIbSBZWgou51U6OmzIhYM2VcNdtiTtI7qPNZm35Akpr0f6vtw3w1Kmn5PYo+tZVfh13WrhpS6oLqQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -2204,8 +2205,8 @@ packages:
     resolution: {integrity: sha512-+iwzCJ7C5v5KgcBuueqVoNiHVoQpwiUK5XFLjf0affFTep+Wcw93tPvmb8tqujDNmzhBDPddnWV/qgWSXgq+Hg==}
     engines: {node: '>=12'}
 
-  firebase-admin@12.5.0:
-    resolution: {integrity: sha512-ad8vnlPcuuZN9scSgY8UnAxPI4mzP2/Q+dsrVLTf+j3h7bIq0FOelDCDGz4StgKJdk244v2kpOxqJjPG3grBHg==}
+  firebase-admin@12.7.0:
+    resolution: {integrity: sha512-raFIrOyTqREbyXsNkSHyciQLfv8AUZazehPaQS1lZBSCDYW74FYXU0nQZa3qHI4K+hawohlDbywZ4+qce9YNxA==}
     engines: {node: '>=14'}
 
   firebase-functions@5.0.1:
@@ -4299,32 +4300,32 @@ snapshots:
 
   '@firebase/auth-interop-types@0.2.3': {}
 
-  '@firebase/component@0.6.8':
+  '@firebase/component@0.6.9':
     dependencies:
-      '@firebase/util': 1.9.7
+      '@firebase/util': 1.10.0
       tslib: 2.6.3
 
-  '@firebase/database-compat@1.0.6':
+  '@firebase/database-compat@1.0.8':
     dependencies:
-      '@firebase/component': 0.6.8
-      '@firebase/database': 1.0.6
-      '@firebase/database-types': 1.0.4
+      '@firebase/component': 0.6.9
+      '@firebase/database': 1.0.8
+      '@firebase/database-types': 1.0.5
       '@firebase/logger': 0.4.2
-      '@firebase/util': 1.9.7
+      '@firebase/util': 1.10.0
       tslib: 2.6.3
 
-  '@firebase/database-types@1.0.4':
+  '@firebase/database-types@1.0.5':
     dependencies:
       '@firebase/app-types': 0.9.2
-      '@firebase/util': 1.9.7
+      '@firebase/util': 1.10.0
 
-  '@firebase/database@1.0.6':
+  '@firebase/database@1.0.8':
     dependencies:
       '@firebase/app-check-interop-types': 0.3.2
       '@firebase/auth-interop-types': 0.2.3
-      '@firebase/component': 0.6.8
+      '@firebase/component': 0.6.9
       '@firebase/logger': 0.4.2
-      '@firebase/util': 1.9.7
+      '@firebase/util': 1.10.0
       faye-websocket: 0.11.4
       tslib: 2.6.3
 
@@ -4332,7 +4333,7 @@ snapshots:
     dependencies:
       tslib: 2.6.3
 
-  '@firebase/util@1.9.7':
+  '@firebase/util@1.10.0':
     dependencies:
       tslib: 2.6.3
 
@@ -4414,8 +4415,8 @@ snapshots:
       body-parser: 1.20.2
       cors: 2.8.5
       express: 4.19.2
-      firebase-admin: 12.5.0
-      firebase-functions: 5.0.1(firebase-admin@12.5.0)
+      firebase-admin: 12.7.0
+      firebase-functions: 5.0.1(firebase-admin@12.7.0)
       uuid: 9.0.1
       zod: 3.23.8
     transitivePeerDependencies:
@@ -4702,7 +4703,7 @@ snapshots:
 
   '@js-sdsl/ordered-map@4.4.2': {}
 
-  '@langchain/community@0.2.28(@google-cloud/storage@7.11.3)(@langchain/google-genai@0.0.23)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(firebase-admin@12.5.0)(google-auth-library@9.11.0)(googleapis@137.1.0)(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.56.0(zod@3.23.8))':
+  '@langchain/community@0.2.28(@google-cloud/storage@7.11.3)(@langchain/google-genai@0.0.23)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(firebase-admin@12.7.0)(google-auth-library@9.11.0)(googleapis@137.1.0)(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.56.0(zod@3.23.8))':
     dependencies:
       '@langchain/core': 0.2.27(langchain@0.2.16(@langchain/community@0.2.28)(@langchain/google-genai@0.0.23)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(handlebars@4.7.8)(ignore@5.3.1)(openai@4.56.0(zod@3.23.8)))(openai@4.56.0(zod@3.23.8))
       '@langchain/openai': 0.2.7(langchain@0.2.16(@langchain/community@0.2.28)(@langchain/google-genai@0.0.23)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(handlebars@4.7.8)(ignore@5.3.1)(openai@4.56.0(zod@3.23.8)))
@@ -4719,7 +4720,7 @@ snapshots:
       '@google-cloud/storage': 7.11.3
       chromadb: 1.8.1(openai@4.56.0(zod@3.23.8))
       d3-dsv: 2.0.0
-      firebase-admin: 12.5.0
+      firebase-admin: 12.7.0
       google-auth-library: 9.11.0
       googleapis: 137.1.0
       ignore: 5.3.1
@@ -4818,13 +4819,13 @@ snapshots:
       '@genkit-ai/dotprompt': 0.5.8
       '@genkit-ai/flow': 0.5.6
       '@genkit-ai/googleai': 0.5.6
-      '@langchain/community': 0.2.28(@google-cloud/storage@7.11.3)(@langchain/google-genai@0.0.23)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(firebase-admin@12.5.0)(google-auth-library@9.11.0)(googleapis@137.1.0)(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.56.0(zod@3.23.8))
+      '@langchain/community': 0.2.28(@google-cloud/storage@7.11.3)(@langchain/google-genai@0.0.23)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(firebase-admin@12.7.0)(google-auth-library@9.11.0)(googleapis@137.1.0)(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.56.0(zod@3.23.8))
       '@langchain/core': 0.2.27(langchain@0.2.16(@langchain/community@0.2.28)(@langchain/google-genai@0.0.23)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(handlebars@4.7.8)(ignore@5.3.1)(openai@4.56.0(zod@3.23.8)))(openai@4.56.0(zod@3.23.8))
       '@langchain/google-genai': 0.0.23(langchain@0.2.16)(openai@4.56.0(zod@3.23.8))(zod@3.23.8)
       '@langchain/openai': 0.2.7(langchain@0.2.16(@langchain/community@0.2.28)(@langchain/google-genai@0.0.23)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(handlebars@4.7.8)(ignore@5.3.1)(openai@4.56.0(zod@3.23.8)))
       d3-dsv: 2.0.0
       dotenv: 16.4.5
-      firebase-admin: 12.5.0
+      firebase-admin: 12.7.0
       genkitx-openai: 0.10.0(@genkit-ai/ai@0.5.8)(@genkit-ai/core@0.5.8)
       langchain: 0.2.16(@langchain/community@0.2.28)(@langchain/google-genai@0.0.23)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(handlebars@4.7.8)(ignore@5.3.1)(openai@4.56.0(zod@3.23.8))
       zod: 3.23.8
@@ -6317,11 +6318,11 @@ snapshots:
     dependencies:
       semver-regex: 4.0.5
 
-  firebase-admin@12.5.0:
+  firebase-admin@12.7.0:
     dependencies:
       '@fastify/busboy': 3.0.0
-      '@firebase/database-compat': 1.0.6
-      '@firebase/database-types': 1.0.4
+      '@firebase/database-compat': 1.0.8
+      '@firebase/database-types': 1.0.5
       '@types/node': 22.1.0
       farmhash-modern: 1.1.0
       jsonwebtoken: 9.0.2
@@ -6335,13 +6336,13 @@ snapshots:
       - encoding
       - supports-color
 
-  firebase-functions@5.0.1(firebase-admin@12.5.0):
+  firebase-functions@5.0.1(firebase-admin@12.7.0):
     dependencies:
       '@types/cors': 2.8.17
       '@types/express': 4.17.3
       cors: 2.8.5
       express: 4.19.2
-      firebase-admin: 12.5.0
+      firebase-admin: 12.7.0
       protobufjs: 7.3.2
     transitivePeerDependencies:
       - supports-color
@@ -7182,7 +7183,7 @@ snapshots:
       zod: 3.23.8
       zod-to-json-schema: 3.23.1(zod@3.23.8)
     optionalDependencies:
-      '@langchain/community': 0.2.28(@google-cloud/storage@7.11.3)(@langchain/google-genai@0.0.23)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(firebase-admin@12.5.0)(google-auth-library@9.11.0)(googleapis@137.1.0)(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.56.0(zod@3.23.8))
+      '@langchain/community': 0.2.28(@google-cloud/storage@7.11.3)(@langchain/google-genai@0.0.23)(chromadb@1.8.1(openai@4.56.0(zod@3.23.8)))(d3-dsv@2.0.0)(fast-xml-parser@4.4.0)(firebase-admin@12.7.0)(google-auth-library@9.11.0)(googleapis@137.1.0)(handlebars@4.7.8)(ignore@5.3.1)(jsonwebtoken@9.0.2)(openai@4.56.0(zod@3.23.8))
       '@langchain/google-genai': 0.0.23(langchain@0.2.16)(openai@4.56.0(zod@3.23.8))(zod@3.23.8)
       chromadb: 1.8.1(openai@4.56.0(zod@3.23.8))
       d3-dsv: 2.0.0
