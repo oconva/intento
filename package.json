@@ -66,7 +66,7 @@
     "typescript-eslint": "^8.1.0"
   },
   "dependencies": {
-    "@genkit-ai/dotprompt": "^0.5.7",
+    "@genkit-ai/dotprompt": "^0.9.12",
     "@oconva/qvikchat": "^2.0.2",
     "firebase-admin": "^12.2.0",
     "zod": "^3.23.8"
